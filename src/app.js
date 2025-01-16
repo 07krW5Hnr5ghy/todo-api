@@ -2,6 +2,7 @@ const express = require('express');
 const dotenv = require('dotenv');
 
 const User = require('./models/User');
+const Todo = require('./models/Todo');
 
 dotenv.config();
 
@@ -19,7 +20,37 @@ app.get('/', async (req,res)=>{
     }catch(error){
         res.status(500).json({message:'Database connection failed',error});
     }
-    
+});
+
+app.get('/seed',async (req,res)=>{
+    try{
+        const user = await User.create({
+            name:'John Doe',
+            email:'john@doe.com',
+            password:'hashedpassword'
+        });
+        const todos = await Todo.insertMany([
+            {
+                title:'Buy Groceries',
+                description:'Milk,eggs,bread',
+                status:'Pending',
+                priority:'High',
+                userId:user._id,
+            },
+            {
+                title:'Read a book',
+                description:'Read 30 pages of the new book',
+                status:'In Progress',
+                priority:'Medium',
+                userId:user._id,
+            }
+        ]);
+
+        res.status(200).json({message:'Data seeded successfully',user,todos});
+    }catch(error){
+        console.error(error);
+        res.status(500).json({message:'Error seeding data',error});
+    }
 });
 
 module.exports = app;
