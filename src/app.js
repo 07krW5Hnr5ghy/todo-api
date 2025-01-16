@@ -4,6 +4,8 @@ const dotenv = require('dotenv');
 const User = require('./models/User');
 const Todo = require('./models/Todo');
 
+const todoRouter = require('./routes/todoRoutes');
+
 dotenv.config();
 
 const app = express();
@@ -52,5 +54,7 @@ app.get('/seed',async (req,res)=>{
         res.status(500).json({message:'Error seeding data',error});
     }
 });
+
+app.use(todoRouter);
 
 module.exports = app;
