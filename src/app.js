@@ -56,7 +56,8 @@ app.get('/seed',async (req,res)=>{
     }
 });
 
-app.use('/api',todoRouter);
 app.use('/api',authRouter);
+app.use('/api',todoRouter);
+
 
 module.exports = app;
