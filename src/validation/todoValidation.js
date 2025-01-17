@@ -10,7 +10,7 @@ const todoSchema = Joi.object({
     description: Joi.string().max(500).allow('').messages({
         'string.max': 'Description must not exceed 500 characters.',
     }),
-    status: Joi.string().valid('pending', 'in-progress', 'completed').optional(),
+    status: Joi.string().valid('Pending','In Progress','Completed').optional(),
 });
 
 module.exports = {
