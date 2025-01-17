@@ -5,6 +5,7 @@ const User = require('./models/User');
 const Todo = require('./models/Todo');
 
 const todoRouter = require('./routes/todoRoutes');
+const authRouter = require('./routes/authRoutes');
 
 dotenv.config();
 
@@ -56,5 +57,6 @@ app.get('/seed',async (req,res)=>{
 });
 
 app.use(todoRouter);
+app.use(authRouter);
 
 module.exports = app;
