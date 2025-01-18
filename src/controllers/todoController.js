@@ -23,8 +23,29 @@ const createTodo = async (req,res) => {
 // Get all todos for the authenticated user
 const getTodos = async (req,res) => {
     try{
-        const todos = await Todo.find({userId: req.user.id});
-        res.status(200).json({todos});
+        const {page=1,limit=10,title,status} = req.query;
+
+        const filter = {};
+        if(title) filter.title = {$regex:title,$options:'i'};
+        if(status) filter.status = status;
+        filter.userId = req.user.id;
+
+        const pageNumber = parseInt(page,10);
+        const limitNumber = parseInt(limit,10);
+        const skip = (pageNumber-1)*limitNumber;
+
+        const todos = await Todo.find(filter)
+        .skip(skip)
+        .limit(limitNumber);
+
+        const total = await Todo.countDocuments(filter);
+
+        res.status(200).json({
+            data:todos,
+            page:pageNumber,
+            limit:limitNumber,
+            total,
+        });
     }catch(error){
         console.error(error);
         res.status(500).json({message:'Server error',error});
