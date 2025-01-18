@@ -82,7 +82,8 @@ This project is a RESTful API for managing a to-do list. It allows users to regi
   ```json
   {
     "title": "Buy groceries",
-    "description": "Buy milk, eggs, and bread"
+    "description": "Buy milk, eggs, and bread",
+    "status": "Completed"
   }
   ```
 - **Response:**
@@ -90,7 +91,12 @@ This project is a RESTful API for managing a to-do list. It allows users to regi
   {
     "id": 1,
     "title": "Buy groceries",
-    "description": "Buy milk, eggs, and bread"
+    "description": "Buy milk, eggs, and bread",
+    "status": "Completed",
+    "priority": "Medium",
+    "userId": "678aa6917048297a4860842f",
+    "createdAt": "2025-01-17T20:50:47.319Z",
+    "updatedAt": "2025-01-17T23:58:17.599Z"
   }
   ```
 
@@ -106,7 +112,12 @@ This project is a RESTful API for managing a to-do list. It allows users to regi
   ```json
   {
     "title": "Buy groceries",
-    "description": "Buy milk, eggs, bread, and cheese"
+    "description": "Buy milk, eggs, bread, and cheese",
+    "status": "Completed",
+    "priority": "Medium",
+    "userId": "678aa6917048297a4860842f",
+    "createdAt": "2025-01-17T20:50:47.319Z",
+    "updatedAt": "2025-01-17T23:58:17.599Z"
   }
   ```
 - **Response:**
@@ -148,12 +159,22 @@ This project is a RESTful API for managing a to-do list. It allows users to regi
       {
         "id": 1,
         "title": "Buy groceries",
-        "description": "Buy milk, eggs, and bread"
+        "description": "Buy milk, eggs, and bread",
+        "status": "Completed",
+        "priority": "Medium",
+        "userId": "678aa6917048297a4860842f",
+        "createdAt": "2025-01-17T20:50:47.319Z",
+        "updatedAt": "2025-01-17T23:58:17.599Z"
       },
       {
         "id": 2,
         "title": "Pay bills",
-        "description": "Pay electricity and water bills"
+        "description": "Pay electricity and water bills",
+        "status": "Completed",
+        "priority": "Medium",
+        "userId": "678aa6917048297a4860842f",
+        "createdAt": "2025-01-17T20:50:47.319Z",
+        "updatedAt": "2025-01-17T23:58:17.599Z"
       }
     ],
     "page": 1,
@@ -175,7 +196,12 @@ This project is a RESTful API for managing a to-do list. It allows users to regi
   {
     "id": 1,
     "title": "Buy groceries",
-    "description": "Buy milk, eggs, and bread"
+    "description": "Buy milk, eggs, and bread",
+    "status": "Completed",
+    "priority": "Medium",
+    "userId": "678aa6917048297a4860842f",
+    "createdAt": "2025-01-17T20:50:47.319Z",
+    "updatedAt": "2025-01-17T23:58:17.599Z"
   }
   ```
 
